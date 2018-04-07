@@ -1,1 +1,3 @@
-alert(0);
+export var doSomething = ()=>{
+  console.log("Doing Something");
+}

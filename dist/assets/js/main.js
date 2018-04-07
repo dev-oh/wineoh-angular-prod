@@ -1,5 +1,5 @@
 
-function animate() {
+export function animate() {
   var css3animation = false,
     css3animationstring = 'animation',
     css3keyframeprefix = '',
@@ -284,5 +284,5 @@ function animate() {
 
 }
 window.onload = function() {
-  animate();
+  // animate();
 }
