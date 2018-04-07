@@ -1,0 +1,46 @@
+run.config:
+  # install php and associated runtimes
+  engine: php
+
+  # php engine configuration (php version, extensions, etc)
+  engine.config:
+
+    # sets the php version to 7.0
+    runtime: php-7.0
+
+    # use nginx
+    webserver: apache
+
+    # enables php extensions
+    extensions:
+      - ctype
+      - dom
+      - iconv
+      - mbstring
+      - session
+      - simplexml
+      - tokenizer
+      - xml
+      - zlib
+
+#
+ 
+
+# add a MySQL database
+data.db:
+  image: nanobox/mysql
+
+#
+
+  
+web.main:
+  start:
+    php: start-php
+    apache: start-apache
+  # add writable dirs to your web component
+  writable_dirs:
+    - var
+
+  # the path to a logfile you want streamed to the nanobox dashboard
+  log_watch:
+    symfony[error]: /app/storage/logs/symfony.log
