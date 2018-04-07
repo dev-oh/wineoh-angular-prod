@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
 app.use(express.static('./dist'));
-app.listen(process.env.PORT || 3000,()=>{
+app.listen(80,()=>{
     console.log("Server Started")
 })
