@@ -1,4 +1,7 @@
 
+export function associateUser(email) {
+  Autopilot.run("associate", email);
+}
 export function animate() {
   var css3animation = false,
     css3animationstring = 'animation',
