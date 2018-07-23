@@ -8,8 +8,7 @@ var express = require('express');
 var app = express();
 app.use(express.static('./dist'));
 app.get('*',(req,res)=>{
-	if (req.protocol === 'http') return res.redirect('https://' + req.headers.host + req.url);
-	res.sendFile(__dirname+'/dist/index.html')
+            res.sendFile(__dirname+'/dist/index.html')
 })
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
