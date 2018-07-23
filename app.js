@@ -6,6 +6,9 @@ var certificate = fs.readFileSync('ssl/server.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
+app.use (function (req, res, next) {
+    if (req.protocol === 'http') return res.redirect('https://' + req.headers.host + req.url);
+});
 app.use(express.static('./dist'));
 app.get('*',(req,res)=>{
             res.sendFile(__dirname+'/dist/index.html')
