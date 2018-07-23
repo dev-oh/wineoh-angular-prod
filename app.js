@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 app.use (function (req, res, next) {
     if (req.protocol === 'http') return res.redirect('https://' + req.headers.host + req.url);
+	next();
 });
 app.use(express.static('./dist'));
 app.get('*',(req,res)=>{
